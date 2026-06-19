@@ -6,7 +6,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import MyBooks from "./pages/MyBooks";
 import Requests from "./pages/Requests";
-
+import Footer from "./components/Footer";
 function App() {
   return (
     <BrowserRouter>
@@ -18,6 +18,7 @@ function App() {
         <Route path="/my-books" element={<MyBooks />} />
         <Route path="/requests" element={<Requests />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
