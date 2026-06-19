@@ -6,10 +6,15 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import MyBooks from "./pages/MyBooks";
 import Requests from "./pages/Requests";
+
+import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+
 function App() {
   return (
     <BrowserRouter>
+      <Navbar />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/books" element={<Books />} />
@@ -18,10 +23,10 @@ function App() {
         <Route path="/my-books" element={<MyBooks />} />
         <Route path="/requests" element={<Requests />} />
       </Routes>
+
       <Footer />
     </BrowserRouter>
   );
-  
 }
 
 export default App;
