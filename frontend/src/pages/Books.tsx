@@ -1,3 +1,5 @@
+import Button from "../components/Button";
+
 function Books() {
   const books = [
     {
@@ -21,23 +23,33 @@ function Books() {
   ];
 
   return (
-    <div>
-      <h1>Available Books</h1>
+    <div style={{ padding: "20px" }}>
+      <h1>📚 Available Books</h1>
 
       {books.map((book) => (
         <div
           key={book.id}
           style={{
             border: "1px solid #ccc",
+            borderRadius: "8px",
             padding: "15px",
             marginBottom: "15px",
-            borderRadius: "8px",
           }}
         >
-          <h3>{book.title}</h3>
-          <p>Author: {book.author}</p>
-          <p>Owner: {book.owner}</p>
-          <button>Request Swap</button>
+          <h2>{book.title}</h2>
+
+          <p>
+            <strong>Author:</strong> {book.author}
+          </p>
+
+          <p>
+            <strong>Owner:</strong> {book.owner}
+          </p>
+
+          <Button
+            text="Request Swap"
+            onClick={() => alert(`Swap request sent for "${book.title}"`)}
+          />
         </div>
       ))}
     </div>
