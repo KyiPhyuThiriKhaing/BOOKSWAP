@@ -2,23 +2,18 @@ import { Link } from "react-router-dom";
 
 function Home() {
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
+    <section className="hero">
       <h1>📚 BookSwap</h1>
 
-      <p>Exchange books with other students and discover new reads.</p>
+      <p>
+        Exchange books with other students and discover amazing new reads
+        through your campus community.
+      </p>
 
       <Link to="/books">
-        <button
-          style={{
-            padding: "10px 20px",
-            fontSize: "16px",
-            cursor: "pointer",
-          }}
-        >
-          Browse Books
-        </button>
+        <button className="primary-btn">Browse Books</button>
       </Link>
-    </div>
+    </section>
   );
 }
 
