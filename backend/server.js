@@ -1,26 +1,23 @@
 const express = require("express");
+const { PrismaClient } = require("@prisma/client");
 
 const app = express();
+const prisma = new PrismaClient();
 
-const books = [
-  {
-    id: 1,
-    title: "Clean Code",
-    author: "Robert Martin",
-  },
-  {
-    id: 2,
-    title: "Java Programming",
-    author: "John Smith",
-  },
-];
+app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("BookSwap Backend Running");
 });
 
-app.get("/books", (req, res) => {
-  res.json(books);
+app.get("/books", async (req, res) => {
+  try {
+    const books = await prisma.book.findMany();
+    res.json(books);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Failed to fetch books" });
+  }
 });
 
 app.listen(5000, () => {
