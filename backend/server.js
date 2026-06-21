@@ -44,6 +44,24 @@ app.post("/books", async (req, res) => {
     res.status(500).json({ error: "Failed to create book" });
   }
 });
+app.post("/users", async (req, res) => {
+  try {
+    const { username, email, password } = req.body;
+
+    const user = await prisma.user.create({
+      data: {
+        username,
+        email,
+        password,
+      },
+    });
+
+    res.status(201).json(user);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Failed to create user" });
+  }
+});
 
 app.listen(5000, () => {
   console.log("Server running on port 5000");
